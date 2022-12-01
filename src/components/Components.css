@@ -6,7 +6,10 @@
 
 .SplashScreen,
 .notification,
+.Login,
 .upload,
+.calculate,
+.text,
 .Auth {
   background: rgb(68, 64, 64);
   width: 100%;
@@ -19,7 +22,7 @@
 .SplashScreen p,
 .Auth p {
   color: rgb(255, 255, 255);
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 25px;
   margin: 30% 0 30% 0;
   text-align: center;
@@ -76,7 +79,8 @@
   margin-bottom: 10%;
 }
 
-.notification a {
+.notification a,
+.upload a {
   display: flex;
   align-items: center;
   width: 100%;
@@ -148,7 +152,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   border: none;
 }
 
@@ -159,16 +163,168 @@
   margin-top: 3%;
 }
 
-/* .fadeoutlabel {
-    animation: fadeOut 2s;
-    height: 13vh;
+.Login form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-top: 20%;
+  align-items: center;
 }
 
-@keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  } */
+.pswrd {
+  width: 90%;
+  background-color: #fff;
+  height: 7vh;
+  display: flex;
+}
+
+.pswrd input {
+  border: none;
+  height: 90%;
+}
+
+.PShow {
+  margin: 13px;
+  font-size: 20px;
+}
+
+.Login form input {
+  width: 90%;
+  margin-bottom: 5%;
+  height: 7vh;
+  padding: 3%;
+  outline: none;
+}
+
+.Login form button {
+  width: 50%;
+  height: 5vh;
+  border: none;
+  border-radius: 9px;
+  background: rgb(37, 37, 248);
+  color: #fff;
+  margin-top: 5%;
+}
+
+form a {
+  width: 50%;
+}
+
+button#navBtn {
+  width: 100%;
+  background: blue;
+  border: none;
+  color: #fff;
+}
+
+.Login h2,
+.text h2, .calculate h2 {
+  color: #fff;
+  margin-top: 10%;
+}
+
+.pswrdStrength {
+  width: 75%;
+  margin-top: 1%;
+}
+
+.pswrdStrength .weak,
+.medium,
+.strong {
+  width: 90%;
+  height: 3vh;
+  border-radius: 10px;
+}
+
+.strong {
+  background: green;
+}
+
+.medium {
+  background: yellow;
+}
+
+.weak {
+  background: red;
+}
+
+.weakDiv,
+.mediumDiv,
+.strongDiv {
+  display: flex;
+  color: #fff;
+}
+
+.text form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.text form button {
+  width: 30%;
+  height: 5vh;
+  margin-top: 5%;
+  background: blue;
+  border: none;
+  color: #fff;
+}
+
+.text a {
+  width: 30%;
+  height: 6vh;
+  margin-top: 2%;
+}
+
+.text a button {
+  height: 5vh;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 20vh;
+  outline: none;
+  text-align: center;
+}
+
+.calculate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.calculate form {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+}
+
+.calculate form input {
+  outline: none;
+  /* text-align: center; */
+  height: 5vh;
+  margin-bottom: 2%;
+  width: 90%;
+}
+
+.calculate form button {
+  width: 50%;
+  height: 7vh;
+  margin-bottom: 2%;
+  border-radius: 5px;
+}
+
+#operators {
+  outline: none;
+  height: 5vh;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 5%;
+}
+
+.calculate h2 {
+  margin-bottom: 8%;
+}

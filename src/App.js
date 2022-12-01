@@ -5,6 +5,10 @@ import Notification from './components/Notification';
 
 import './App.css';
 import Upload from './components/Upload';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import Text from './components/Text';
+import Calculate from './components/Calculate';
 
 function App() {
 
@@ -15,6 +19,10 @@ function App() {
           <Route exact path="/auth" element={<Auth />} />
           <Route exact path="/notification" element={<Notification />} />
           <Route exact path="/upload" element={<Upload />} />
+          <Route exact path="/login" element={<SignIn />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/text" element={<Text />} />
+          <Route exact path="/calculate" element={<Calculate />} />
         </Routes>
       </Router>
   );

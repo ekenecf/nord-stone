@@ -1,31 +1,33 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { IoIosArrowForward } from 'react-icons/io'
 
 function Upload() {
   const [formInputs, changeFormInputs] = useState({
-    picture: "",
-  });
+    picture: '',
+  })
 
   const updateImage = (e) => {
     if (e.target.files.length !== 0) {
       changeFormInputs({
         ...formInputs,
         picture: e.target.files[0],
-      });
+      })
     }
-  };
-  console.log(formInputs.picture);
+  }
+  console.log(formInputs.picture)
   return (
     <div className="upload">
       <div className="ImgEdit">
         {formInputs.picture ? (
           <div className="uploadbtn">
-            {" "}
+            {' '}
             <div className="ImgCover">
               <img src={formInputs.picture} alt="UploadedImage" />
-            </div>{" "}
+            </div>{' '}
             <label
-              for="file"
-              className={formInputs.picture ? null : "fadeinlabel"}
+              htmlFor="file"
+              className={formInputs.picture ? null : 'fadeinlabel'}
             >
               Edit Image
             </label>
@@ -44,7 +46,7 @@ function Upload() {
         {!formInputs.picture ? (
           <label
             for="file"
-            className={formInputs.picture ? null : "fadeinlabel"}
+            className={formInputs.picture ? null : 'fadeinlabel'}
           >
             Choose File
           </label>
@@ -59,8 +61,11 @@ function Upload() {
         />
         <button>Upload image</button>
       </div>
+      <NavLink to={'/text'}>
+        Write text <IoIosArrowForward className="foward" />
+      </NavLink>
     </div>
-  );
+  )
 }
 
-export default Upload;
+export default Upload
