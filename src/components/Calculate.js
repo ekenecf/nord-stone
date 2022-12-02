@@ -7,7 +7,7 @@ function Calculate() {
       <h2>Solve it</h2>
       <form >
         <input type="number" name="number" placeholder="Number1" required />
-        <label for="cars">Choose a car:</label>
+        <label for="cars">Choose operation:</label>
 
 <select name="cars" id="operators">
   <option value="volvo">Select Operator</option>

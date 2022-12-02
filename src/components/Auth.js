@@ -1,13 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-// import AOS from 'aos';
 
 import './Components.css'
 
 function Auth() {
-  // AOS.init({
-  //   duration: 1200,
-  // });
+
 
   return (
     <div className="Auth">

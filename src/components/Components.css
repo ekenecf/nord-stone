@@ -8,6 +8,7 @@
 .notification,
 .Login,
 .upload,
+.forgotpassword,
 .calculate,
 .text,
 .Auth {
@@ -84,7 +85,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
   font-size: 30px;
   position: absolute;
   bottom: 0;
@@ -100,10 +101,16 @@
 .ImgEdit {
   width: 100%;
   height: 60%;
-  background-color: red;
+  background-color: #633131;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.ImgEdit p {
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
 }
 
 .uploadbtn {
@@ -118,6 +125,12 @@
   height: 300px;
   border-radius: 50%;
   background: #000;
+}
+
+.ImgCover img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
@@ -196,6 +209,15 @@
   outline: none;
 }
 
+.Login form p {
+  color: #fff;
+  margin-top: 3%;
+}
+
+.Login form a {
+  text-decoration: none;
+}
+
 .Login form button {
   width: 50%;
   height: 5vh;
@@ -218,7 +240,8 @@ button#navBtn {
 }
 
 .Login h2,
-.text h2, .calculate h2 {
+.text h2,
+.calculate h2 {
   color: #fff;
   margin-top: 10%;
 }
@@ -297,14 +320,12 @@ textarea {
 .calculate form {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   width: 100%;
 }
 
 .calculate form input {
   outline: none;
-  /* text-align: center; */
   height: 5vh;
   margin-bottom: 2%;
   width: 90%;
@@ -327,4 +348,38 @@ textarea {
 
 .calculate h2 {
   margin-bottom: 8%;
+}
+
+.forgotpassword {
+  justify-content: center;
+}
+
+.forgotpassword .resetPassword {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.forgotpassword h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.forgotpassword .resetPassword input {
+  width: 100%;
+  height: 5vh;
+  outline: none;
+  margin-bottom: 5%;
+}
+
+.forgotpassword .resetPassword button {
+  width: 90%;
+  height: 5vh;
+  color: #fff;
+  background: blue;
+  border: none;
+  border-radius: 5px;
 }

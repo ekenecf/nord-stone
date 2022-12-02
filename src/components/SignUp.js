@@ -1,34 +1,65 @@
 import React, { useState } from 'react'
-import { useNavigate, NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { AiFillEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { auth } from '../base'
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function SignUp() {
   const [openEye, setopenEye] = useState(false)
-  const handleVisible = () => [setopenEye(!openEye)]
+  const [Error, setEror] = useState({
+    errorMessage: ''
+  })
+  const handleVisible = () => setopenEye(!openEye)
+  const Navigate = useNavigate()
 
   const [formInputs, changeFormInputs] = useState({
+    email: '',
     password: '',
   })
 
+  const updateEmail = (e) => {
+    changeFormInputs({
+      ...formInputs,
+      email: e.target.value,
+    })
+  }
   const updatePassword = (e) => {
     changeFormInputs({
       ...formInputs,
       password: e.target.value,
     })
   }
-  console.log(formInputs.password.length)
+
+const handleSignUp = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, formInputs.email, formInputs.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if(user) {
+            Navigate("/upload")
+        }
+        console.log(user)
+      })
+      .catch(() => {
+        setEror ({
+            ...Error,
+            errorMessage: "This Email/Password is already in use"
+          })
+    alert(Error.errorMessage)
+      });
+}
+  console.log(Error.errorMessage)
 
   return (
     <div className="Login">
       <h2>SignUp</h2>
-      <form>
-        <input type="name" name="name" placeholder="Name here" required />
-        <input type="email" name="email" placeholder="Email here" required />
+      <form onSubmit={(e) => handleSignUp(e)}>
+        <input type="email" name="email" placeholder="Input Email" onChange={updateEmail} required />
         <div className="pswrd">
           <input
             type={openEye ? 'text' : 'password'}
             name="password"
-            placeholder="password"
+            placeholder="Input password"
             required
             onChange={updatePassword}
           />
@@ -45,7 +76,7 @@ function SignUp() {
               weak <p className="weak"></p>
             </div>
           ) : formInputs.password.length >= 6 &&
-            formInputs.password.length <= 10 ? (
+            formInputs.password.length <= 12 ? (
             <div className="mediumDiv">
               medium <p className="medium"></p>
             </div>
@@ -55,7 +86,7 @@ function SignUp() {
             </div>
           )}
         </div>
-        <button type="submit">SignIn</button>
+        <button type="submit">SignUp</button>
         <NavLink to={'/auth'}>
           <button id='navBtn'>
             Back</button>

@@ -9,6 +9,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Text from './components/Text';
 import Calculate from './components/Calculate';
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/text" element={<Text />} />
           <Route exact path="/calculate" element={<Calculate />} />
+          <Route exact path="/forgotpassword" element={<ForgotPassword />} />
         </Routes>
       </Router>
   );
