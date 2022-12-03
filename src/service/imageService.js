@@ -1,5 +1,5 @@
 import { db } from "../base";
-import { collection, addDoc, doc, getDoc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc, updateDoc, getDocs } from "firebase/firestore";
 
 const imageCollection = collection(db, "Image");
 
@@ -14,8 +14,7 @@ class myImage {
   };
 
   getImage = () => {
-    return getDoc(imageCollection);
+    return getDocs(imageCollection);
   };
 }
-
 export default myImage;
