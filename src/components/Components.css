@@ -1,0 +1,499 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.SplashScreen,
+.notification,
+.Login,
+.upload,
+.forgotpassword,
+.calculate,
+.text,
+.Auth {
+  background: rgb(68, 64, 64);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SplashScreen p,
+.Auth p {
+  color: rgb(255, 255, 255);
+  font-family: "Open Sans";
+  font-size: 25px;
+  margin: 30% 0 30% 0;
+  text-align: center;
+}
+
+.SplashScreen img,
+.authBtn button,
+.uploadbtn label,
+.fadeinlabel {
+  animation: fadeIn 5s;
+  height: 13vh;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.SplashScreen .Idea {
+  width: 70%;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: yellow;
+  /* overflow: hidden; */
+  white-space: nowrap;
+  margin: 0 10px;
+  letter-spacing: 0.15em;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+.authBtn {
+  height: 5vh;
+  width: 45%;
+}
+
+.authBtn button {
+  height: 7vh;
+  width: 100%;
+  margin-top: 5%;
+  border: none;
+  background: rgb(26, 26, 173);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.authBtn button:hover {
+  background: rgb(17, 17, 70);
+}
+
+.notification {
+  justify-content: center;
+  position: relative;
+}
+
+.notification button {
+  width: 90%;
+  background: red;
+  border: none;
+  height: 7vh;
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: 10%;
+}
+
+.notification a,
+.upload a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 30px;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.foward {
+  font-size: 50px;
+  color: black;
+}
+
+.ImgEdit {
+  width: 100%;
+  height: 60%;
+  background-color: #633131;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ImgEdit p {
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+}
+
+.uploadbtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImgCover {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #000;
+}
+
+.ImgCover img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.uploadbtn button {
+  margin-top: 20px;
+  height: 7vh;
+  width: 30%;
+  border-radius: 10px;
+  border: none;
+}
+
+.UploadImage {
+  margin-top: 10%;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.UploadImage label,
+.uploadbtn label,
+.UploadImage button {
+  background: rgb(4 4 213 / 65%);
+  width: 39%;
+  height: 10vh;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans";
+  border: none;
+}
+
+.uploadbtn label {
+  margin-top: 2%;
+}
+.UploadImage button {
+  margin-top: 3%;
+}
+
+.Login form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-top: 20%;
+  align-items: center;
+}
+
+.pswrd {
+  width: 90%;
+  background-color: #fff;
+  height: 7vh;
+  display: flex;
+}
+
+.pswrd input {
+  border: none;
+  height: 90%;
+}
+
+.PShow {
+  margin: 13px;
+  font-size: 20px;
+}
+
+.Login form input {
+  width: 90%;
+  margin-bottom: 5%;
+  height: 7vh;
+  padding: 3%;
+  outline: none;
+}
+
+.Login form p {
+  color: #fff;
+  margin-top: 3%;
+}
+
+.Login form a {
+  text-decoration: none;
+}
+
+.Login form button {
+  width: 50%;
+  height: 5vh;
+  border: none;
+  border-radius: 9px;
+  background: rgb(37, 37, 248);
+  color: #fff;
+  margin-top: 5%;
+}
+
+form a {
+  width: 50%;
+}
+
+button#navBtn {
+  width: 100%;
+  background: blue;
+  border: none;
+  color: #fff;
+}
+
+.Login h2,
+.text h2,
+.calculate h2 {
+  color: #fff;
+  margin-top: 10%;
+}
+
+.pswrdStrength {
+  width: 75%;
+  margin-top: 1%;
+}
+
+.pswrdStrength .weak,
+.medium,
+.strong {
+  width: 90%;
+  height: 3vh;
+  border-radius: 10px;
+}
+
+.strong {
+  background: green;
+}
+
+.medium {
+  background: yellow;
+}
+
+.weak {
+  background: red;
+}
+
+.weakDiv,
+.mediumDiv,
+.strongDiv {
+  display: flex;
+  color: #fff;
+}
+
+.text form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.text p {
+  font-size: 25px;
+  font-family: "Lato";
+  color: #fff;
+  margin-top: 3%;
+}
+
+.text form button {
+  width: 30%;
+  height: 5vh;
+  margin-top: 5%;
+  background: blue;
+  border: none;
+  color: #fff;
+}
+
+.text a {
+  width: 30%;
+  height: 6vh;
+  margin-top: 2%;
+}
+
+.text a button {
+  height: 5vh;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 20vh;
+  outline: none;
+  text-align: center;
+}
+
+/* .calculate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+} */
+
+.calculate form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.calculate form input {
+  outline: none;
+  height: 5vh;
+  margin-bottom: 2%;
+  width: 90%;
+}
+
+.calculate form button {
+  width: 50%;
+  height: 7vh;
+  margin-bottom: 2%;
+  border-radius: 5px;
+}
+
+.calculate form .getApiData p {
+  font-size: 25px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: cursive;
+}
+
+.getApiData {
+  margin-left: 5%;
+}
+
+#operators {
+  outline: none;
+  height: 5vh;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 5%;
+}
+
+.calculate h2 {
+  margin-bottom: 8%;
+  font-size: 60px;
+  font-family: cursive;
+}
+
+.forgotpassword {
+  justify-content: center;
+}
+
+.forgotpassword .resetPassword {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.forgotpassword h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.forgotpassword .resetPassword input {
+  width: 100%;
+  height: 5vh;
+  outline: none;
+  margin-bottom: 5%;
+}
+
+.forgotpassword .resetPassword button {
+  width: 90%;
+  height: 5vh;
+  color: #fff;
+  background: blue;
+  border: none;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .Auth p {
+    margin: 7% 0 7% 0;
+  }
+
+  .Login h2 {
+    margin-top: 4%;
+  }
+
+  .Login form {
+    margin-top: 5%;
+    width: 40%;
+  }
+
+  .authBtn button,
+  .Login form button,
+  .text form button,
+  button#navBtn,
+  .UploadImage label,
+  .UploadImage button,
+  .notification button {
+    cursor: pointer;
+  }
+
+  .PShow {
+    cursor: pointer;
+  }
+
+  .UploadImage {
+    margin-top: 0;
+  }
+
+  .text {
+    height: max-content;
+  }
+
+  .text form {
+    margin-top: 4%;
+  }
+
+  .text p {
+    text-align: center;
+    margin-top: 2%;
+  }
+
+  .text h2 {
+    margin-top: 3%;
+  }
+
+  .calculate h2 {
+    margin-bottom: 3%;
+    margin-top: 1%;
+  }
+
+  #operators {
+    margin-bottom: 2%;
+  }
+
+  .calculate form .getApiData p {
+    margin-bottom: 25px;
+  }
+}
