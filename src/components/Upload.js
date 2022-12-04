@@ -1,79 +1,72 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import {
-  ref,
-  getDownloadURL,
-  uploadBytesResumable,
-  listAll,
-} from 'firebase/storage'
-import { imageStorage } from '../base'
-import myImage from '../service/imageService'
-import { IoIosArrowForward } from 'react-icons/io'
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { imageStorage } from "../base";
+import myImage from "../service/imageService";
+import { IoIosArrowForward } from "react-icons/io";
 
 function Upload() {
   const [formInputs, changeFormInputs] = useState({
-    picture: '',
-    loading: true,
-    // imagePreview: '',
-  })
+    picture: "",
+  });
 
-  const [imgUrl, setImgUrl] = useState('')
-  const [imagePreview, setimagePreview] = useState('')
+  const [imgUrl, setImgUrl] = useState("");
+  const [imagePreview, setimagePreview] = useState("");
 
   const updateImage = (e) => {
-    const file = e.target.files[0]
+    const file = e.target.files[0];
     if (e.target.files.length !== 0) {
       changeFormInputs({
         ...formInputs,
         picture: file,
-      })
+      });
     }
-    // setimagePreview(URL.createObjectURL(file))
-  }
-  const storageList = ref(imageStorage, 'files/')
+  };
+  console.log(formInputs.picture)
 
   const handleUpload = () => {
-    if (!formInputs.picture) return
-    const storageRef = ref(imageStorage, `files/${formInputs.picture.name}`)
+    if (!formInputs.picture) return;
+    const storageRef = ref(imageStorage, `files/${formInputs.picture.name}`);
     uploadBytesResumable(storageRef, formInputs.picture).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setImgUrl(url)
-      })
-    })
-  }
+        if (url === "") return;
+        setImgUrl(url);
+      });
+    });
+  };
 
   useEffect(() => {
-    handleUpload()
-  }, [formInputs.picture])
-  getFromstore()
+    handleUpload();
+    getFromstore();
+  }, [formInputs.picture]);
 
-  // useEffect(() => {
-  //   getFromstore()
-  //   // window.location.reload()
-  // }, [imagePreview])
+  console.log((imgUrl));
 
   const uploadToStore = () => {
-    if (!imgUrl) return
-    const classText = new myImage()
-    classText.addImage({ imgUrl })
-    // window.location.reload()
-    alert('Image Successfully uploaded')
-  }
+    if (!imgUrl && imgUrl === ""){
+      alert("Kindly select an Image")
+      return;
+    };
+    const classText = new myImage();
+    classText.addImage({ imgUrl });
+    alert("Image Successfully uploaded");
+    getFromstore();
+  };
 
   function getFromstore() {
-    if (!imagePreview) {
-      const classImage = new myImage()
-      classImage.getImage().then((response) => setimagePreview(response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))))
-    // window.location.reload()
-    } else {
-      return;
-    }
+    // if (!imagePreview) {
+    const classImage = new myImage();
+    classImage
+      .getImage()
+      .then((response) =>
+        setimagePreview(
+          response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        )
+      );
+    // }
   }
-  // 
 
-  // const getUrl = { ...imagePreview }
-  console.log(imagePreview[0] )
-  // const preview = imagePreview.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  console.log(imagePreview[0]);
 
   return (
     <div className="upload">
@@ -82,13 +75,13 @@ function Upload() {
           <p>No image gotten yet...</p>
         ) : imagePreview[0] ? (
           <div className="uploadbtn">
-            {' '}
+            {" "}
             <div className="ImgCover">
               <img src={imagePreview[0].imgUrl} alt="UploadedImage" />
-            </div>{' '}
+            </div>{" "}
             <label
               htmlFor="file"
-              className={formInputs.picture ? null : 'fadeinlabel'}
+              className={formInputs.picture ? null : "fadeinlabel"}
             >
               Edit Image
             </label>
@@ -107,7 +100,7 @@ function Upload() {
         {!formInputs.picture ? (
           <label
             htmlFor="file"
-            className={formInputs.picture ? null : 'fadeinlabel'}
+            className={formInputs.picture ? null : "fadeinlabel"}
           >
             Choose File
           </label>
@@ -120,14 +113,14 @@ function Upload() {
           required
           hidden
         />
-        {/* <button onClick={((e) => handleUpload(e), () => uploadToStore())}> */}
+
         <button onClick={uploadToStore}>Upload image</button>
       </div>
-      <NavLink to={'/text'}>
+      <NavLink to={"/text"}>
         Write text <IoIosArrowForward className="foward" />
       </NavLink>
     </div>
-  )
+  );
 }
 
-export default Upload
+export default Upload;

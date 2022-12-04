@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { AiFillEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
 import { auth } from "../base";
 
 function SignIn() {
@@ -10,13 +9,10 @@ function SignIn() {
   const [openEye, setopenEye] = useState(false);
   const handleVisible = () => setopenEye(!openEye);
 
-  const [Error, setEror] = useState({
-    errorMessage: "",
-  });
-
   const [formInputs, changeFormInputs] = useState({
     email: "",
     password: "",
+    errorMessage: "This Email/Password is Incorrect!!",
   });
 
   const getEmail = (e) => {
@@ -34,10 +30,8 @@ function SignIn() {
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    // const auth = getAuth();
     signInWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         if (user) {
           Navigate("/upload");
@@ -45,17 +39,13 @@ function SignIn() {
         console.log(user);
       })
       .catch(() => {
-        setEror({
-          ...Error,
-          errorMessage: "This Email/Password is Incorrect!!",
-        });
-        alert(Error.errorMessage);
+        alert(formInputs.errorMessage);
       });
   };
 
   return (
     <div className="Login">
-      <h2>Login</h2>
+      <h2>Sign In</h2>
       <form onSubmit={handleLogIn}>
         <input
           type="email"

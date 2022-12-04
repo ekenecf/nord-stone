@@ -1,63 +1,68 @@
-import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { AiFillEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import { auth } from '../base'
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AiFillEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { auth } from "../base";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function SignUp() {
-  const [openEye, setopenEye] = useState(false)
+  const Navigate = useNavigate();
+  const [openEye, setopenEye] = useState(false);
   const [Error, setEror] = useState({
-    errorMessage: ''
-  })
-  const handleVisible = () => setopenEye(!openEye)
-  const Navigate = useNavigate()
+    errorMessage: "",
+  });
+  const handleVisible = () => setopenEye(!openEye);
 
   const [formInputs, changeFormInputs] = useState({
-    email: '',
-    password: '',
-  })
+    email: "",
+    password: "",
+  });
 
   const updateEmail = (e) => {
     changeFormInputs({
       ...formInputs,
       email: e.target.value,
-    })
-  }
+    });
+  };
   const updatePassword = (e) => {
     changeFormInputs({
       ...formInputs,
       password: e.target.value,
-    })
-  }
+    });
+  };
 
-const handleSignUp = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        if(user) {
-            Navigate("/upload")
+        if (user) {
+          Navigate("/upload");
         }
-        console.log(user)
+        console.log(user);
       })
       .catch(() => {
-        setEror ({
-            ...Error,
-            errorMessage: "This Email/Password is already in use"
-          })
-    alert(Error.errorMessage)
+        setEror({
+          ...Error,
+          errorMessage: "This Email/Password is already in use",
+        });
+        alert(Error.errorMessage);
       });
-}
-  console.log(Error.errorMessage)
+  };
 
   return (
     <div className="Login">
       <h2>SignUp</h2>
       <form onSubmit={(e) => handleSignUp(e)}>
-        <input type="email" name="email" placeholder="Input Email" onChange={updateEmail} required />
+        <input
+          type="email"
+          name="email"
+          placeholder="Input Email"
+          onChange={updateEmail}
+          required
+        />
         <div className="pswrd">
           <input
-            type={openEye ? 'text' : 'password'}
+            type={openEye ? "text" : "password"}
             name="password"
             placeholder="Input password"
             required
@@ -87,13 +92,12 @@ const handleSignUp = (e) => {
           )}
         </div>
         <button type="submit">SignUp</button>
-        <NavLink to={'/auth'}>
-          <button id='navBtn'>
-            Back</button>
+        <NavLink to={"/auth"}>
+          <button id="navBtn">Back</button>
         </NavLink>
       </form>
     </div>
-  )
+  );
 }
 
-export default SignUp
+export default SignUp;

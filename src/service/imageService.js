@@ -1,5 +1,11 @@
 import { db } from "../base";
-import { collection, addDoc, doc, getDoc, updateDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+  getDocs,
+} from "firebase/firestore";
 
 const imageCollection = collection(db, "Image");
 

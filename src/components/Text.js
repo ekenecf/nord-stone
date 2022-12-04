@@ -10,7 +10,6 @@ function Text() {
   };
 
   const [getText, setText] = useState([]);
-
   const [formInputs, changeFormInputs] = useState({
     text: "",
   });
@@ -23,31 +22,27 @@ function Text() {
   };
   console.log(formInputs.text);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const classText = new myText();
-      await classText.addText(formInputs);
-      changeFormInputs({
-        ...formInputs,
-        text: "",
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleGetText = async () => {
     const classText = new myText();
     const getAllText = await classText.getText();
     setText(getAllText.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const classText = new myText();
+      await classText.addText(formInputs);
+      formInputs.text = "";
+    } catch (err) {
+      console.log(err);
+    }
+    handleGetText();
+  };
+
   useEffect(() => {
     handleGetText();
   }, []);
-
-  console.log(getText);
 
   return (
     <div className="text">
@@ -70,11 +65,11 @@ function Text() {
       <NavLink to={"/notification"}>
         <button id="navBtn">Back</button>
       </NavLink>
-      {getText.length
-        ? getText.map(textData => ( 
-            <p key={textData.id}>Testing the app</p>
-        ))
-        : "No text Added yet"}
+      {getText.length ? (
+        getText.map((textData) => <p key={textData.id}>{textData.text}</p>)
+      ) : (
+        <p>No text Added yet</p>
+      )}
     </div>
   );
 }

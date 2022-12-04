@@ -23,7 +23,7 @@
 .SplashScreen p,
 .Auth p {
   color: rgb(255, 255, 255);
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 25px;
   margin: 30% 0 30% 0;
   text-align: center;
@@ -43,6 +43,37 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+.SplashScreen .Idea {
+  width: 70%;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: yellow;
+  /* overflow: hidden; */
+  white-space: nowrap;
+  margin: 0 10px;
+  letter-spacing: 0.15em;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
   }
 }
 
@@ -165,7 +196,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   border: none;
 }
 
@@ -285,6 +316,13 @@ button#navBtn {
   margin-top: 10%;
 }
 
+.text p {
+  font-size: 25px;
+  font-family: "Lato";
+  color: #fff;
+  margin-top: 3%;
+}
+
 .text form button {
   width: 30%;
   height: 5vh;
@@ -311,11 +349,11 @@ textarea {
   text-align: center;
 }
 
-.calculate {
+/* .calculate {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
+} */
 
 .calculate form {
   display: flex;
@@ -338,6 +376,17 @@ textarea {
   border-radius: 5px;
 }
 
+.calculate form .getApiData p {
+  font-size: 25px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: cursive;
+}
+
+.getApiData {
+  margin-left: 5%;
+}
+
 #operators {
   outline: none;
   height: 5vh;
@@ -348,6 +397,8 @@ textarea {
 
 .calculate h2 {
   margin-bottom: 8%;
+  font-size: 60px;
+  font-family: cursive;
 }
 
 .forgotpassword {
@@ -364,8 +415,8 @@ textarea {
 .forgotpassword h2 {
   color: #fff;
   margin-bottom: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .forgotpassword .resetPassword input {
@@ -382,4 +433,67 @@ textarea {
   background: blue;
   border: none;
   border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .Auth p {
+    margin: 7% 0 7% 0;
+  }
+
+  .Login h2 {
+    margin-top: 4%;
+  }
+
+  .Login form {
+    margin-top: 5%;
+    width: 40%;
+  }
+
+  .authBtn button,
+  .Login form button,
+  .text form button,
+  button#navBtn,
+  .UploadImage label,
+  .UploadImage button,
+  .notification button {
+    cursor: pointer;
+  }
+
+  .PShow {
+    cursor: pointer;
+  }
+
+  .UploadImage {
+    margin-top: 0;
+  }
+
+  .text {
+    height: max-content;
+  }
+
+  .text form {
+    margin-top: 4%;
+  }
+
+  .text p {
+    text-align: center;
+    margin-top: 2%;
+  }
+
+  .text h2 {
+    margin-top: 3%;
+  }
+
+  .calculate h2 {
+    margin-bottom: 3%;
+    margin-top: 1%;
+  }
+
+  #operators {
+    margin-bottom: 2%;
+  }
+
+  .calculate form .getApiData p {
+    margin-bottom: 25px;
+  }
 }
