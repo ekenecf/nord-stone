@@ -47,15 +47,15 @@
 }
 
 #Idea {
-  width: 100%;
-  font-size: 14px;
+  width: 70%;
+  font-size: 15px;
   text-transform: uppercase;
   color: yellow;
   overflow: hidden;
   white-space: nowrap;
   margin: 15% 0 11% 0;
   letter-spacing: 0.15em;
-  animation: typing 5.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -186,7 +186,7 @@
 .UploadImage label,
 .uploadbtn label,
 .UploadImage button {
-  background: rgb(4 4 213 / 65%);
+  background: rgb(33 33 202 / 65%);
   width: 39%;
   height: 10vh;
   border-radius: 10px;
