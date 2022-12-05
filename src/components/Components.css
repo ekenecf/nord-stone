@@ -25,7 +25,7 @@
   color: rgb(255, 255, 255);
   font-family: "Open Sans";
   font-size: 25px;
-  margin: 30% 0 30% 0;
+  margin: 20% 0 20% 0;
   text-align: center;
 }
 
@@ -46,14 +46,14 @@
   }
 }
 
-.SplashScreen .Idea {
+#Idea {
   width: 70%;
-  font-size: 20px;
+  font-size: 15px;
   text-transform: uppercase;
   color: yellow;
-  /* overflow: hidden; */
+  overflow: hidden;
   white-space: nowrap;
-  margin: 0 10px;
+  margin: 15% 0 11% 0;
   letter-spacing: 0.15em;
   animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
 }
@@ -501,7 +501,7 @@ textarea {
     margin: 5% 0 10% 0;
   }
 
-  .SplashScreen .Idea {
-    margin-top: 5%;
+  #Idea {
+    margin-top: 0;
   }
 }
