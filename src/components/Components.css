@@ -47,7 +47,7 @@
 }
 
 #Idea {
-  width: 70%;
+  width: 100%;
   font-size: 15px;
   text-transform: uppercase;
   color: yellow;
@@ -98,7 +98,6 @@
 
 .notification {
   justify-content: center;
-  position: relative;
 }
 
 .notification button {
@@ -108,7 +107,7 @@
   height: 7vh;
   color: #fff;
   font-size: 25px;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 
 .notification a,
@@ -118,7 +117,6 @@
   width: 100%;
   justify-content: flex-end;
   font-size: 30px;
-  position: absolute;
   color: #fff;
   text-decoration: none;
 }
@@ -129,6 +127,7 @@
 
 .upload a {
   bottom: 0;
+  position: absolute;
 }
 
 .foward {
@@ -356,12 +355,6 @@ textarea {
   outline: none;
   text-align: center;
 }
-
-/* .calculate {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-} */
 
 .calculate form {
   display: flex;

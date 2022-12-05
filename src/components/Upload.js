@@ -82,7 +82,7 @@ function Upload() {
               htmlFor="file"
               className={formInputs.picture ? null : "fadeinlabel"}
             >
-              Edit Image
+              Change Image?
             </label>
             <input
               type="file"
