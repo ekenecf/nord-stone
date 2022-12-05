@@ -119,9 +119,16 @@
   justify-content: flex-end;
   font-size: 30px;
   position: absolute;
-  bottom: 0;
   color: #fff;
   text-decoration: none;
+}
+
+.notification a {
+  bottom: 45px;
+}
+
+.upload a {
+  bottom: 0;
 }
 
 .foward {
