@@ -9,7 +9,7 @@ function Splash() {
   const [toggle, setToggle] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setToggle(!toggle), 5500);
+    const timer = setTimeout(() => setToggle(!toggle), 7500);
     return () => clearTimeout(timer);
   }, [toggle]);
 
