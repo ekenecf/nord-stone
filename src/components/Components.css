@@ -242,7 +242,7 @@
 
 .Login form p {
   color: #fff;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 .Login form a {
@@ -285,8 +285,8 @@ button#navBtn {
 .pswrdStrength .weak,
 .medium,
 .strong {
-  width: 90%;
-  height: 3vh;
+  width: 70%;
+  height: 2vh;
   border-radius: 10px;
 }
 
@@ -306,6 +306,7 @@ button#navBtn {
 .mediumDiv,
 .strongDiv {
   display: flex;
+  justify-content: space-evenly;
   color: #fff;
 }
 
