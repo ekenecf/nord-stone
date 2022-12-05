@@ -22,8 +22,6 @@ function Upload() {
       });
     }
   };
-  console.log(formInputs.picture)
-
   const handleUpload = () => {
     if (!formInputs.picture) return;
     const storageRef = ref(imageStorage, `files/${formInputs.picture.name}`);
@@ -38,6 +36,7 @@ function Upload() {
   useEffect(() => {
     handleUpload();
     getFromstore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formInputs.picture]);
 
   console.log((imgUrl));

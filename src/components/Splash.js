@@ -11,7 +11,7 @@ function Splash() {
   useEffect(() => {
     const timer = setTimeout(() => setToggle(!toggle), 50000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [toggle]);
 
   return (
     <div className="SplashScreen">
