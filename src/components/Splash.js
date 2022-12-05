@@ -9,7 +9,7 @@ function Splash() {
   const [toggle, setToggle] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setToggle(!toggle), 7500);
+    const timer = setTimeout(() => setToggle(!toggle), 50000);
     return () => clearTimeout(timer);
   }, [toggle]);
 
@@ -20,7 +20,7 @@ function Splash() {
         <>
           <img src={image} alt="SplashImage" />
           <ThreeDots />
-          <p id="Idea">Where Idea meets reality through technology</p>
+          <p id="Idea">Where Idea meets reality through <br /> technology</p>
         </>
       ) : (
         Navigate("/auth")
