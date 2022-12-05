@@ -36,7 +36,7 @@ function SignUp() {
       .then((userCredential) => {
         const user = userCredential.user;
         if (user) {
-          Navigate("/upload");
+          Navigate("/notification");
         }
         console.log(user);
       })

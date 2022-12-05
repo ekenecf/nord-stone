@@ -96,7 +96,7 @@ function Upload() {
         ) : null}
       </div>
       <div className="UploadImage">
-        {!formInputs.picture ? (
+        {!imagePreview[0] ? (
           <label
             htmlFor="file"
             className={formInputs.picture ? null : "fadeinlabel"}

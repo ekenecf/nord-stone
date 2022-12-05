@@ -62,8 +62,8 @@ function Text() {
           Send
         </button>
       </form>
-      <NavLink to={"/notification"}>
-        <button id="navBtn">Back</button>
+      <NavLink to={"/calculate"}>
+        <button id="navBtn">Calculate</button>
       </NavLink>
       {getText.length ? (
         getText.map((textData) => <p key={textData.id}>{textData.text}</p>)
