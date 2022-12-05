@@ -496,4 +496,12 @@ textarea {
   .calculate form .getApiData p {
     margin-bottom: 25px;
   }
+
+  .SplashScreen p {
+    margin: 5% 0 10% 0;
+  }
+
+  .SplashScreen .Idea {
+    margin-top: 5%;
+  }
 }
