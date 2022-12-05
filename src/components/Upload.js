@@ -53,7 +53,6 @@ function Upload() {
   };
 
   function getFromstore() {
-    // if (!imagePreview) {
     const classImage = new myImage();
     classImage
       .getImage()
@@ -62,7 +61,6 @@ function Upload() {
           response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         )
       );
-    // }
   }
 
   console.log(imagePreview[0]);
@@ -82,7 +80,7 @@ function Upload() {
               htmlFor="file"
               className={formInputs.picture ? null : "fadeinlabel"}
             >
-              Change Image?
+              Change Image
             </label>
             <input
               type="file"

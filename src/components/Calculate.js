@@ -84,7 +84,7 @@ function Calculate() {
             <p>No calculation yet</p>
           )}
         </div>
-        <NavLink to={"/notification"}>
+        <NavLink to={"/text"}>
           <button id="navBtn">Back</button>
         </NavLink>
       </form>

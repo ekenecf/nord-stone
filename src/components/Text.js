@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { IoIosArrowForward } from "react-icons/io";
 import myText from "../service/textService";
 
 function Text() {
@@ -62,14 +63,15 @@ function Text() {
           Send
         </button>
       </form>
-      <NavLink to={"/calculate"}>
-        <button id="navBtn">Calculate</button>
-      </NavLink>
+
       {getText.length ? (
         getText.map((textData) => <p key={textData.id}>{textData.text}</p>)
       ) : (
         <p>No text Added yet</p>
       )}
+      <NavLink to={"/calculate"}>
+        Calculate <IoIosArrowForward className="foward" />
+      </NavLink>
     </div>
   );
 }

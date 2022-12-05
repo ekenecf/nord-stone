@@ -340,9 +340,14 @@ button#navBtn {
 }
 
 .text a {
-  width: 30%;
-  height: 6vh;
-  margin-top: 2%;
+  width: 95%;
+  margin-top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #fff;
+  font-size: 30px;
+  text-decoration: none;
 }
 
 .text a button {
