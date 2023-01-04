@@ -1,49 +1,52 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { IoIosArrowForward } from "react-icons/io";
-import myText from "../service/textService";
+import React, { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { IoIosArrowForward } from 'react-icons/io'
+import myText from '../service/textService'
 
 function Text() {
   const notify = () => {
-    toast("You have successfully created a text!");
-  };
+    if (!formInputs.text) {
+      return alert('Please input text')
+    }
+    toast('You have successfully created a text!')
+  }
 
-  const [getText, setText] = useState([]);
+  const [getText, setText] = useState([])
   const [formInputs, changeFormInputs] = useState({
-    text: "",
-  });
+    text: '',
+  })
 
   const getTextInput = (e) => {
     changeFormInputs({
       ...formInputs,
       text: e.target.value,
-    });
-  };
-  console.log(formInputs.text);
+    })
+  }
 
   const handleGetText = async () => {
-    const classText = new myText();
-    const getAllText = await classText.getText();
-    setText(getAllText.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
+    const classText = new myText()
+    const getAllText = await classText.getText()
+    setText(getAllText.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      const classText = new myText();
-      await classText.addText(formInputs);
-      formInputs.text = "";
+      const classText = new myText()
+      await classText.addText(formInputs)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-    handleGetText();
-  };
+    handleGetText()
+    formInputs.text = ''
+    console.log(formInputs)
+  }
 
   useEffect(() => {
-    handleGetText();
-  }, []);
+    handleGetText()
+  }, [])
 
   return (
     <div className="text">
@@ -69,11 +72,11 @@ function Text() {
       ) : (
         <p>No text Added yet</p>
       )}
-      <NavLink to={"/calculate"}>
+      <NavLink to={'/calculate'}>
         Calculate <IoIosArrowForward className="foward" />
       </NavLink>
     </div>
-  );
+  )
 }
 
-export default Text;
+export default Text

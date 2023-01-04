@@ -33,10 +33,10 @@ function SignIn() {
     signInWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        sessionStorage.setItem("userEmail", user.email);
         if (user) {
           Navigate("/notification");
         }
-        console.log(user);
       })
       .catch(() => {
         alert(formInputs.errorMessage);
@@ -45,7 +45,7 @@ function SignIn() {
 
   return (
     <div className="Login">
-      <h2>Sign In</h2>
+      <h2>Log In</h2>
       <form onSubmit={handleLogIn}>
         <input
           type="email"
