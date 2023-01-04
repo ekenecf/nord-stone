@@ -7,14 +7,12 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 function SignUp() {
   const Navigate = useNavigate();
   const [openEye, setopenEye] = useState(false);
-  const [Error, setEror] = useState({
-    errorMessage: "",
-  });
   const handleVisible = () => setopenEye(!openEye);
 
   const [formInputs, changeFormInputs] = useState({
     email: "",
     password: "",
+    errorMessage: "This Email/Password is already in use",
   });
 
   const updateEmail = (e) => {
@@ -35,17 +33,13 @@ function SignUp() {
     createUserWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        sessionStorage.setItem("userEmail", user.email);
         if (user) {
           Navigate("/notification");
         }
-        console.log(user);
       })
       .catch(() => {
-        setEror({
-          ...Error,
-          errorMessage: "This Email/Password is already in use",
-        });
-        alert(Error.errorMessage);
+        alert(formInputs.errorMessage);
       });
   };
 

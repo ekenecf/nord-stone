@@ -3,15 +3,14 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 function Calculate() {
-  const URL = "https://calculateapi-production.up.railway.app/calculate";
-
+  const URL = "https://calculateapi.onrender.com/calculate";
   const [getCalculateFromApi, setgetCalculateFromApi] = useState([]);
 
   const getCalculate = () => {
     axios
       .get(URL)
       .then((response) =>
-        setgetCalculateFromApi((prev) => [...prev, response.data])
+        setgetCalculateFromApi(() => [response.data])
       )
       .catch(() => {
         alert("Failed to get data! Kindly refresh page");
@@ -26,7 +25,6 @@ function Calculate() {
       num2: number1.value,
       operator: operate.value,
     };
-    console.log(createdCalculate);
     const config = {
       headers: {
         "content-type": "application/json",
@@ -34,18 +32,19 @@ function Calculate() {
     };
     axios
       .post(URL, createdCalculate, config)
-      .then(() => window.location.reload())
+      .then(() => getCalculate())
       .catch((error) => {
         console.log("Catch error", error);
       });
     number.value = "";
     number1.value = "";
-    operate.value = "Select Operator";
   };
 
   useEffect(() => {
     getCalculate();
   }, []);
+
+  console.log(getCalculateFromApi)
 
   return (
     <div className="calculate">
@@ -57,9 +56,8 @@ function Calculate() {
           placeholder="Input number"
           required
         />
-
         <select name="operate" id="operators" required>
-          <option>Select Operator</option>
+          <option value="NAN">Select Operator</option>
           <option>*</option>
           <option>+</option>
           <option>-</option>
@@ -77,7 +75,7 @@ function Calculate() {
             getCalculateFromApi[0].data.calculate.map((datum) => (
               <p key={datum._id}>
                 Result of {""}
-                {datum.num1} {datum.operator} {datum.num2} is {datum.sumAnswer}
+                {datum.num1} {datum.operator} {datum.num2} is {datum.sumAnswer ? datum.sumAnswer : "invalid"}
               </p>
             ))
           ) : (

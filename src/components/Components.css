@@ -23,7 +23,7 @@
 .SplashScreen p,
 .Auth p {
   color: rgb(255, 255, 255);
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 25px;
   margin: 20% 0 20% 0;
   text-align: center;
@@ -125,9 +125,27 @@
   bottom: 45px;
 }
 
+.notification p {
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 10%;
+}
+
 .upload a {
   bottom: 0;
   position: absolute;
+}
+
+#requestLogin, #requestLoginNotification {
+  font-size: 50px;
+  color: white;
+  margin-top: 15%;
+}
+
+#requestLoginNotification {
+  color: #000;
+  font-size: 30px;
+  text-align: center;
 }
 
 .foward {
@@ -201,7 +219,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   border: none;
 }
 
@@ -325,7 +343,7 @@ button#navBtn {
 
 .text p {
   font-size: 25px;
-  font-family: "Lato";
+  font-family: 'Lato';
   color: #fff;
   margin-top: 3%;
 }
@@ -382,6 +400,10 @@ textarea {
   border-radius: 5px;
 }
 
+.calculate form button:hover {
+  cursor: pointer;
+}
+
 .calculate form .getApiData p {
   font-size: 25px;
   color: #fff;
@@ -421,8 +443,8 @@ textarea {
 .forgotpassword h2 {
   color: #fff;
   margin-bottom: 20px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .forgotpassword .resetPassword input {
