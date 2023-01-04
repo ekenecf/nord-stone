@@ -136,7 +136,9 @@
   position: absolute;
 }
 
-#requestLogin, #requestLoginNotification {
+#requestLogin,
+#requestLoginNotification,
+#requestLoginCalculate {
   font-size: 50px;
   color: white;
   margin-top: 15%;
