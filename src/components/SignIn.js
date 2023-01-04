@@ -4,6 +4,7 @@ import { AiFillEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../base";
 
+
 function SignIn() {
   const Navigate = useNavigate();
   const [openEye, setopenEye] = useState(false);
@@ -29,6 +30,7 @@ function SignIn() {
   };
 
   const handleLogIn = (e) => {
+    // setPersistence(auth, browserSessionPersistence)
     e.preventDefault();
     signInWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
