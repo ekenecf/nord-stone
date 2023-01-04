@@ -4,7 +4,6 @@ import axios from 'axios'
 
 function Calculate() {
   let userEmail = sessionStorage.getItem('userEmail')
-
   const URL = 'https://calculateapi.onrender.com/calculate'
   const [getCalculateFromApi, setgetCalculateFromApi] = useState([])
 
