@@ -66,7 +66,6 @@ function Text() {
           Send
         </button>
       </form>
-
       {getText.length ? (
         getText.map((textData) => <p key={textData.id}>{textData.text}</p>)
       ) : (
