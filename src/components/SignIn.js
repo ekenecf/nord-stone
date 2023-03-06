@@ -42,6 +42,7 @@ function SignIn() {
       })
       .catch(() => {
         alert(formInputs.errorMessage);
+        window.location.reload()
       });
   };
 

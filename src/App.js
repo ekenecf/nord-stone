@@ -1,6 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
-// import { useNavigate } from "react-router-dom";
 
 import Splash from "./components/Splash";
 import Auth from "./components/Auth";
@@ -13,9 +11,7 @@ import SignUp from "./components/SignUp";
 import Text from "./components/Text";
 import Calculate from "./components/Calculate";
 import ForgotPassword from "./components/ForgotPassword";
-// import { useEffect } from "react";
 
-// const auth = getAuth();
 function App() {
 
   return (

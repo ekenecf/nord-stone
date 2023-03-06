@@ -6,7 +6,8 @@ import myImage from '../service/imageService'
 import { IoIosArrowForward } from 'react-icons/io'
 
 function Upload() {
-  let userEmail = sessionStorage.getItem('userEmail')
+  let userEmail = JSON.parse(localStorage.getItem("userEmail"));
+
   const [formInputs, changeFormInputs] = useState({
     picture: '',
   })
@@ -60,6 +61,8 @@ function Upload() {
         ),
       )
   }
+
+  console.log(console.log(imagePreview))
 
   return (
     <div className="upload">
