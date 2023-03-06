@@ -4,12 +4,13 @@ import { IoIosArrowForward } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
-function Notification() {
+function Notification(prop) {
   const notify = () => {
     toast("You just activated a notification!");
   };
-  let userEmail = sessionStorage.getItem("userEmail");
+  let userEmail = JSON.parse(localStorage.getItem("userEmail"));
 
+  console.log(prop)
   return (
     <>
       {userEmail ? (

@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.text {
+  height: max-content;
+}
+
 .SplashScreen p,
 .Auth p {
   color: rgb(255, 255, 255);
@@ -44,6 +48,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.googleBtn {
+  margin-top: 5%;
 }
 
 #Idea {
