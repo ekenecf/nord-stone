@@ -504,8 +504,8 @@ textarea {
     margin-top: 0;
   }
 
-  .text {
-    height: max-content;
+  .text a {
+    margin-top: 17.15%;
   }
 
   .text form {
