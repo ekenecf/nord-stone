@@ -1,47 +1,47 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { AiFillEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { auth } from "../base";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { AiFillEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { auth } from '../base'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 function SignUp() {
-  const Navigate = useNavigate();
-  const [openEye, setopenEye] = useState(false);
-  const handleVisible = () => setopenEye(!openEye);
+  const Navigate = useNavigate()
+  const [openEye, setopenEye] = useState(false)
+  const handleVisible = () => setopenEye(!openEye)
 
   const [formInputs, changeFormInputs] = useState({
-    email: "",
-    password: "",
-    errorMessage: "This Email/Password is already in use",
-  });
+    email: '',
+    password: '',
+    errorMessage: 'This Email/Password is already in use',
+  })
 
   const updateEmail = (e) => {
     changeFormInputs({
       ...formInputs,
       email: e.target.value,
-    });
-  };
+    })
+  }
   const updatePassword = (e) => {
     changeFormInputs({
       ...formInputs,
       password: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSignUp = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     createUserWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        sessionStorage.setItem("userEmail", user.email);
+        const user = userCredential.user
+        localStorage.setItem('userEmail', JSON.stringify(user.email))
         if (user) {
-          Navigate("/notification");
+          Navigate('/notification')
         }
       })
       .catch(() => {
-        alert(formInputs.errorMessage);
-      });
-  };
+        alert(formInputs.errorMessage)
+      })
+  }
 
   return (
     <div className="Login">
@@ -56,7 +56,7 @@ function SignUp() {
         />
         <div className="pswrd">
           <input
-            type={openEye ? "text" : "password"}
+            type={openEye ? 'text' : 'password'}
             name="password"
             placeholder="Input password"
             required
@@ -86,12 +86,12 @@ function SignUp() {
           )}
         </div>
         <button type="submit">SignUp</button>
-        <NavLink to={"/auth"}>
+        <NavLink to={'/auth'}>
           <button id="navBtn">Back</button>
         </NavLink>
       </form>
     </div>
-  );
+  )
 }
 
-export default SignUp;
+export default SignUp

@@ -1,50 +1,49 @@
-import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
-import { AiFillEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../base";
-
+import React, { useState } from 'react'
+import { useNavigate, NavLink } from 'react-router-dom'
+import { AiFillEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../base'
 
 function SignIn() {
-  const Navigate = useNavigate();
-  const [openEye, setopenEye] = useState(false);
-  const handleVisible = () => setopenEye(!openEye);
+  const Navigate = useNavigate()
+  const [openEye, setopenEye] = useState(false)
+  const handleVisible = () => setopenEye(!openEye)
 
   const [formInputs, changeFormInputs] = useState({
-    email: "",
-    password: "",
-    errorMessage: "This Email/Password is Incorrect!!",
-  });
+    email: '',
+    password: '',
+    errorMessage: 'This Email/Password is Incorrect!!',
+  })
 
   const getEmail = (e) => {
     changeFormInputs({
       ...formInputs,
       email: e.target.value,
-    });
-  };
+    })
+  }
   const getPassword = (e) => {
     changeFormInputs({
       ...formInputs,
       password: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleLogIn = (e) => {
     // setPersistence(auth, browserSessionPersistence)
-    e.preventDefault();
+    e.preventDefault()
     signInWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        sessionStorage.setItem("userEmail", user.email);
+        const user = userCredential.user
+        localStorage.setItem('userEmail', JSON.stringify(user.email))
         if (user) {
-          Navigate("/notification");
+          Navigate('/notification')
         }
       })
       .catch(() => {
-        alert(formInputs.errorMessage);
+        alert(formInputs.errorMessage)
         window.location.reload()
-      });
-  };
+      })
+  }
 
   return (
     <div className="Login">
@@ -59,7 +58,7 @@ function SignIn() {
         />
         <div className="pswrd">
           <input
-            type={openEye ? "text" : "password"}
+            type={openEye ? 'text' : 'password'}
             name="password"
             placeholder="password"
             required
@@ -72,15 +71,15 @@ function SignIn() {
           )}
         </div>
         <button type="submit">SignIn</button>
-        <NavLink to={"/auth"}>
+        <NavLink to={'/auth'}>
           <button id="navBtn">Back</button>
         </NavLink>
-        <NavLink to={"/forgotpassword"}>
+        <NavLink to={'/forgotpassword'}>
           <p>Forgot password?</p>
         </NavLink>
       </form>
     </div>
-  );
+  )
 }
 
-export default SignIn;
+export default SignIn
