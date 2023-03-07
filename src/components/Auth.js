@@ -22,7 +22,6 @@ function Auth() {
         if(user) {
         Navigate('/notification')
         }
-        console.log(user)
         console.log('token', token)
       })
       .catch((error) => {

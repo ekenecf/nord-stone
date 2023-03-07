@@ -41,7 +41,6 @@ function Text() {
     }
     handleGetText()
     formInputs.text = ''
-    console.log(formInputs)
   }
 
   useEffect(() => {

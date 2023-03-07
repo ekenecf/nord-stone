@@ -6,13 +6,14 @@ import myImage from '../service/imageService'
 import { IoIosArrowForward } from 'react-icons/io'
 
 function Upload() {
-  let userEmail = JSON.parse(localStorage.getItem("userEmail"));
+  let userEmail = JSON.parse(localStorage.getItem('userEmail'))
 
   const [formInputs, changeFormInputs] = useState({
     picture: '',
   })
   const [imgUrl, setImgUrl] = useState('')
   const [imagePreview, setimagePreview] = useState('')
+  const [file, setFile] = useState()
 
   const updateImage = (e) => {
     const file = e.target.files[0]
@@ -22,6 +23,7 @@ function Upload() {
         picture: file,
       })
     }
+    setFile(URL.createObjectURL(file))
   }
   const handleUploadToStorage = () => {
     if (!formInputs.picture) return
@@ -48,6 +50,7 @@ function Upload() {
     const classText = new myImage()
     classText.addImage({ imgUrl })
     alert('Image Successfully uploaded')
+    setFile()
     getFromstore()
   }
 
@@ -62,8 +65,6 @@ function Upload() {
       )
   }
 
-  console.log(console.log(imagePreview))
-
   return (
     <div className="upload">
       {userEmail ? (
@@ -75,7 +76,10 @@ function Upload() {
               <div className="uploadbtn">
                 {' '}
                 <div className="ImgCover">
-                  <img src={imagePreview[0].imgUrl} alt="UploadedImage" />
+                  <img
+                    src={file ? file : imagePreview[0].imgUrl}
+                    alt="UploadedImage"
+                  />
                 </div>{' '}
                 <label
                   htmlFor="file"
