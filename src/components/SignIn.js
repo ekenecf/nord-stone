@@ -29,7 +29,6 @@ function SignIn() {
   }
 
   const handleLogIn = (e) => {
-    // setPersistence(auth, browserSessionPersistence)
     e.preventDefault()
     signInWithEmailAndPassword(auth, formInputs.email, formInputs.password)
       .then((userCredential) => {
